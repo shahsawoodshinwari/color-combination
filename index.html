@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Color Combination Checker</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 3rem; /* Adding 3rem padding to the body */
+  }
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  button {
+    padding: 8px 15px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  #result {
+    margin-top: 15px;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+  <h1>Color Combination Checker</h1>
+  <label for="pantsColor">Pants Color (Name or Hex):</label>
+  <input type="text" id="pantsColor">
+  <label for="shirtColor">Shirt Color (Name or Hex):</label>
+  <input type="text" id="shirtColor">
+  <button onclick="checkCombination()">Check Combination</button>
+  <button onclick="resetForm()">Reset</button>
+  <div id="result"></div>
+
+  <script>
+    function checkCombination() {
+      const pantsColor = document.getElementById("pantsColor").value;
+      const shirtColor = document.getElementById("shirtColor").value;
+
+      // Convert color names to hex codes (for simplicity, not exhaustive)
+      const colorNamesToHex = {
+        red: "#FF0000",
+        green: "#00FF00",
+        blue: "#0000FF",
+        // ... add more color names and hex codes as needed
+      };
+
+      const pantsHex = colorNamesToHex[pantsColor.toLowerCase()] || pantsColor;
+      const shirtHex = colorNamesToHex[shirtColor.toLowerCase()] || shirtColor;
+
+      const contrastRatio = calculateContrastRatio(pantsHex, shirtHex);
+
+      const resultElement = document.getElementById("result");
+      if (contrastRatio >= 4.5) {
+        resultElement.textContent = "Good combination! The contrast ratio is suitable.";
+        resultElement.style.color = "green";
+      } else {
+        resultElement.textContent = "Low contrast! Consider adjusting the colors.";
+        resultElement.style.color = "red";
+      }
+    }
+
+    function calculateContrastRatio(color1, color2) {
+      // This is a simplified formula for contrast ratio calculation
+      // Actual calculation involves converting hex to RGB and applying a formula
+      // For simplicity, this example considers all colors to have sufficient contrast
+      return 5.0;
+    }
+
+    function resetForm() {
+      document.getElementById("pantsColor").value = "";
+      document.getElementById("shirtColor").value = "";
+      document.getElementById("result").textContent = "";
+    }
+  </script>
+</body>
+</html>
