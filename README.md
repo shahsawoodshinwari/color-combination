@@ -26,6 +26,9 @@ The "color-combination" project is a simple web application that allows users to
 - The color names to hexadecimal color code mapping is limited and may not cover all possible color names.
 - The application does not take into account other factors affecting color coordination, such as user preferences, cultural considerations, and color theory.
 
+## Demo
+[Demo](https://shahsawoodshinwari.github.io/color-combination/)
+
 ## Contributing
 
 Contributions to improve and expand this project are welcome! If you have ideas for enhancing the color-combination application, feel free to submit pull requests. Please make sure to provide clear explanations of the changes you're proposing.
